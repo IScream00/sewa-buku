@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Actions\Peminjams;
+
+use App\Models\Peminjam;
+
+class PeminjamStore {
+
+    public function execute($request): Peminjam
+    {
+        $peminjam = Peminjam::create([
+            'nama_peminjam'=>$request->nama_peminjam,
+            // 'user_id'=> auth()->id(),
+            'ktp'=> $request->ktp,
+            'alamat'=> $request->alamat,
+            'hp'=> $request->alamat
+        ]);
+
+        return $peminjam;
+    }
+
+}

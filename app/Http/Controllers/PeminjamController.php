@@ -92,14 +92,14 @@ class PeminjamController extends Controller
      */
     public function update(Request $request, $peminjam)
     {
-        // try {
-        //     $book->execute($request);
-        //     return redirect()->route('books.index', $book->id);
-        // } catch (\Exception $exception) {
-        //     return response()->json(['error' => $exception->getMessage()], 422);
-        // }
-        // $book->update($request->all());
-        // return redirect()->route('books.index', $book->id);
+        try {
+            $book->execute($request);
+            return redirect()->route('books.index', $book->id);
+        } catch (\Exception $exception) {
+            return response()->json(['error' => $exception->getMessage()], 422);
+        }
+        $book->update($request->all());
+        return redirect()->route('books.index', $book->id);
     }
 
     /**
